@@ -110,10 +110,16 @@ class Environment {
         if (i != g) {
           if (dist(gravityWhells.get(i).x, gravityWhells.get(i).y, gravityWhells.get(g).x, gravityWhells.get(g).y) < (gravityWhells.get(g).radius + gravityWhells.get(g).radius) /2) {
             // gravityWhells.add(new GravityWhell(gravityWhells.get(g).x - gravityWhells.get(g).radius/2, gravityWhells.get(g).y, (gravityWhells.get(i).mass + gravityWhells.get(g).mass) * 1.2, gravityWhells.get(g).radius + gravityWhells.get(i).radius, 0, 0));
+            float newWhellPositionX = (gravityWhells.get(g).x + gravityWhells.get(g).x)/2;
+            float newWhellPositionY = (gravityWhells.get(g).y + gravityWhells.get(g).y)/2;
+
             gravityWhells.get(g).mass += gravityWhells.get(i).mass;
             gravityWhells.get(g).radius += gravityWhells.get(i).radius;
             gravityWhells.get(g).xVelocity += gravityWhells.get(i).xVelocity;
             gravityWhells.get(g).yVelocity += gravityWhells.get(i).yVelocity;
+
+            gravityWhells.get(g).x = newWhellPositionX;
+            gravityWhells.get(g).y = newWhellPositionY;
 
             gravityWhells.get(i).mass = 0;
             gravityWhells.get(i).radius = 0;
@@ -135,10 +141,16 @@ class Environment {
         if (i != g) {
           if (dist(massBombs.get(i).x, massBombs.get(i).y, massBombs.get(g).x, massBombs.get(g).y) < (massBombs.get(g).size + massBombs.get(g).size) /2) {
             // gravityWhells.add(new GravityWhell(gravityWhells.get(g).x - gravityWhells.get(g).radius/2, gravityWhells.get(g).y, (gravityWhells.get(i).mass + gravityWhells.get(g).mass) * 1.2, gravityWhells.get(g).radius + gravityWhells.get(i).radius, 0, 0));
+            float newMassBombPositionX = (massBombs.get(g).x + massBombs.get(g).x)/2;
+            float newMassBombPositionY = (massBombs.get(g).y + massBombs.get(g).y)/2;
+
             massBombs.get(g).mass += massBombs.get(i).mass;
             massBombs.get(g).size += 10;
             massBombs.get(g).xVelocity += massBombs.get(i).xVelocity;
             massBombs.get(g).yVelocity += massBombs.get(i).yVelocity;
+
+            massBombs.get(g).x = newMassBombPositionX;
+            massBombs.get(g).y = newMassBombPositionY;
 
             massBombs.get(i).mass = 0;
             massBombs.get(i).size = 0;

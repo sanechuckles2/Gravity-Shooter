@@ -17,6 +17,7 @@ enum GamePhase {
     title, 
     settings, 
     playerSelect, 
+    arenaSelect, 
     game, 
     gameWon, 
     pause,
@@ -30,6 +31,7 @@ void setup() {
   players = new ArrayList<Player>();
   gamePhasesCaptain = new GamePhasesCaptain();
   envirnment = new Environment();
+  gamePhasesCaptain.setupDirector();
 }
 
 void draw() {
@@ -43,10 +45,13 @@ void draw() {
     gamePhasesCaptain.title();
     break;
   case game:
-    gamePhasesCaptain.runGame();
+    gamePhasesCaptain.game();
     break;
   case playerSelect:
     gamePhasesCaptain.playerSelect();
+    break;
+  case arenaSelect:
+    gamePhasesCaptain.arenaSelect();
     break;
   case gameWon:
     gamePhasesCaptain.gameWon();
